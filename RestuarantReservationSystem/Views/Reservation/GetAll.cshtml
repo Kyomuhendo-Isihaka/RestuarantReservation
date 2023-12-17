@@ -1,0 +1,32 @@
+﻿@model IEnumerable<RestuarantReservationSystem.Models.Reservation>
+@{
+}
+
+<div class="container">
+    <h4 class="display-4 text-center">Reservations</h4>
+
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Customer Name</th>
+                <th>Reservation Date</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var reservation in Model)
+            {
+                <tr>
+                    <td>@reservation.Name</td>
+                    <td>@reservation.DateCreated</td>
+                    <td>
+                        <a href="/Reservation/Update?id=@reservation.Id" class="btn btn-warning">Edit</a> |
+                        <a href="/Reservation/Delete?id=@reservation.Id" onclick="return window.confirm('Are you sure?')" class="btn btn-secondary">Cancle</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
